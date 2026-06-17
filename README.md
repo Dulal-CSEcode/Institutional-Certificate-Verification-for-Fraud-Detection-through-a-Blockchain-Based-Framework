@@ -248,6 +248,25 @@ Future versions will incorporate:
 
 ---
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 ## Limitations
 
 * Evaluated in a local Ganache environment
@@ -285,15 +304,23 @@ If you use this repository in your research, please cite:
   year={2026}
 }
 ```
+-->
+
+
+
+
+
+
+
+
+
+
 
 ---
 
 ## Contact
 
 Md. Dulal Hossain
-
-Research Assistant
-
-Green University of Bangladesh
-
-Email: [your-email@example.com](mailto:your-email@example.com)
+Officer & Research Assistant, 
+Canadian University of Bangladesh
+Email: [dulal.md.cse@gmail.com](mailto:dulal.md.cse@gmail.com)

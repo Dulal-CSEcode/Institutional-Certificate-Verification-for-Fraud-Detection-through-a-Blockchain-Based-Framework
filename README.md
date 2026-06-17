@@ -120,7 +120,7 @@ Valid / Invalid Certificate Decision
 ### Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/BCVFD.git
+git clone [https://github.com/Dulal-CSEcode/Institutional-Certificate-Verification-for-Fraud-Detection-through-a-Blockchain-Based-Framework.git](https://github.com/Dulal-CSEcode/Institutional-Certificate-Verification-for-Fraud-Detection-through-a-Blockchain-Based-Framework.git)
 cd BCVFD
 ```
 
@@ -161,7 +161,7 @@ Deploy the Solidity contract using Remix IDE or Truffle.
 Update:
 
 ```python
-deployed_contract_address = "YOUR_CONTRACT_ADDRESS"
+deployed_contract_address = "0x9895084d88973BA054173364a87EF843DBCc9319"
 ```
 
 inside:
@@ -320,7 +320,10 @@ If you use this repository in your research, please cite:
 
 ## Contact
 
-Md. Dulal Hossain
+#Md. Dulal Hossain,
+
 Officer & Research Assistant, 
+
 Canadian University of Bangladesh
+
 Email: [dulal.md.cse@gmail.com](mailto:dulal.md.cse@gmail.com)

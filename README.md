@@ -117,18 +117,14 @@ Valid / Invalid Certificate Decision
 * Node.js (optional)
 * Ethereum development environment
 
-````markdown
-### Clone Repository
 
-📂 **[Institutional Certificate Verification for Fraud Detection through a Blockchain-Based Framework](https://github.com/Dulal-CSEcode/Institutional-Certificate-Verification-for-Fraud-Detection-through-a-Blockchain-Based-Framework)**
+### Clone Repository
 
 ```bash
 git clone https://github.com/Dulal-CSEcode/Institutional-Certificate-Verification-for-Fraud-Detection-through-a-Blockchain-Based-Framework.git
 cd BCVFD
 ````
 
-```
-```
 
 ### Install Dependencies
 

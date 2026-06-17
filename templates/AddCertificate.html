@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Certificate Verification and Validation using Blockchain</title>
+
+  <meta name="keywords" content="Specific Template, HTML CSS, free website template" />
+  <meta name="description" content="Specific Template is a free website template provided by TemplateMo.com" />
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='templatemo_style.css') }}">
+
+  <style>
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 10px 0;
+    }
+    .logo {
+      height: 60px;
+    }
+    .logo-container h1 {
+      color: white;
+      font-size: 22px;
+    }
+  </style>
+
+  <script LANGUAGE="Javascript">
+    function validate() {
+      var x = document.forms["f1"]["t1"].value;
+      var y = document.forms["f1"]["t2"].value;
+      var a1 = document.forms["f1"]["t3"].value;
+      var a2 = document.forms["f1"]["t4"].value;
+      var a3 = document.forms["f1"]["t5"].value;
+      var a4 = document.forms["f1"]["t6"].value;
+
+      if (x == null || x == "") {
+        window.alert("Student ID must be enter");
+        document.f1.t1.focus();
+        return false;
+      }
+      if (y == null || y == "") {
+        window.alert("Student name must be enter");
+        document.f1.t2.focus();
+        return false;
+      }
+      if (a1 == null || a1 == "") {
+        alert("Please enter department name");
+        document.f1.t3.focus();
+        return false;
+      }
+      if (a2 == null || a2 == "") {
+        alert("Please enter Contact no");
+        document.f1.t4.focus();
+        return false;
+      }
+      if (a3 == null || a3 == "") {
+        alert("Please enter address details");
+        document.f1.t5.focus();
+        return false;
+      }
+      if (a4 == null || a4 == "") {
+        alert("Please upload Certificate file");
+        document.f1.t6.focus();
+        return false;
+      }
+      return true;
+    }
+  </script>
+</head>
+
+<body>
+
+
+
+  {% include 'header.html' %}
+
+  <div id="templatemo_menu_wrapper">
+    <div id="templatemo_menu">
+      <ul>
+        <li class="nlink"><a href="AddCertificate">Upload&nbsp;New&nbsp;Certificates</a></li>
+        <li class="nlink"><a href="ViewCertificates">&nbsp;&nbsp;&nbsp;&nbsp;View&nbsp;Certificates&nbsp;Details</a></li>
+        <li class="nlink"><a href="ViewCompanies">View&nbsp;Company&nbsp;Details</a></li>
+        <li class="nlink"><a href="index">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="entry">
+    <br/><br/><br/><br/>
+
+    <div class="msg">
+      <font size="3" color="red"><center>{{ msg | safe }}</center></font>
+    </div>
+
+    <br/><br/>
+    <center><h3 style="color: black;">Add New Certificate Screen</h3></center>
+
+    <form name="f1" method="post" action="/AddCertificateAction" enctype="multipart/form-data" onsubmit="return validate(this);">
+      <br/><br/>
+      <table align="center" width="30%" class="notepad">
+        <tr>
+          <th align="left"><font size="2" color="black">Student&nbsp;ID</font></th>
+          <td>&nbsp;<input type="text" name="t1" value=''>
+            <div id='nameid'></div>
+          </td>
+        </tr>
+
+        <tr>
+          <th align="left"><font size="2" color="black">Student&nbsp;Name</font></th>
+          <td>&nbsp;<input type="text" name="t2" value=''></td>
+        </tr>
+
+        <tr>
+          <th align="left"><font size="2" color="black">Department&nbsp;Name</font></th>
+          <td>&nbsp;<input type="text" name="t3" value='' size="15"></td>
+        </tr>
+
+        <tr>
+          <th align="left"><font size="2" color="black">Contact&nbsp;No</font></th>
+          <td>&nbsp;<input type="text" name="t4" value='' size="60"></td>
+        </tr>
+
+        <tr>
+          <th align="left"><font size="2" color="black">Address&nbsp;Details</font></th>
+          <td>&nbsp;<input type="text" name="t5" value='' size="45"></td>
+        </tr>
+
+        <tr>
+          <th align="left"><font size="2" color="black">Upload&nbsp;Certificate</font></th>
+          <td>&nbsp;<input type="file" name="t6"></td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td><input type="submit" value="Submit"></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+ <footer style="background-color: #2c3e50; color: #ecf0f1; text-align: center; padding: 1rem 0; font-size: 0.9rem;">
+    &copy; Certificate Verification System. Developed with ❤️ using Blockchain.
+  </footer>
+
+</body>
+</html>

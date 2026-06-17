@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Certificate Verification</title>
+  <style>
+    :root {
+      --primary: #3498db;
+      --dark: #2c3e50;
+      --light: #ecf0f1;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f8;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--dark), var(--primary));
+      color: var(--white);
+      padding: 1rem 0;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 60px;
+    }
+
+    .logo-container h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      animation: slideIn 1s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo-container">
+       <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Blockchain Certificate Logo" class="logo">
+      <h1>Certificate Verification and Validation using Blockchain</h1>
+    </div>
+  </header>
+
+</body>
+</html>

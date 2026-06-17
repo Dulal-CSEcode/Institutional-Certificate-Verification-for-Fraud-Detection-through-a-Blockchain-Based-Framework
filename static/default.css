@@ -1,0 +1,233 @@
+/* ===== Modern Reset & Base Styles ===== */
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #2c3e50;
+  --accent-color: #8C0209;
+  --text-color: #222222;
+  --light-bg: #f5f7f8;
+  --white: #ffffff;
+  --border-color: #dcdcdc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--light-bg);
+}
+
+/* ===== Typography ===== */
+h1, h2, h3, h4 {
+  margin: 1rem 0;
+  color: var(--accent-color);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.4rem; }
+
+p, ol, ul {
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Links & Buttons ===== */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* ===== Layout Container ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== Header ===== */
+#header {
+  background-color: var(--secondary-color);
+  padding: 20px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  color: var(--white);
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#logo img {
+  height: 60px;
+}
+
+#logo h1,
+#logo p,
+#logo a {
+  color: var(--white);
+}
+
+#logo h1 {
+  font-size: 2rem;
+}
+
+/* ===== Navigation Menu ===== */
+#menu {
+  background-color: var(--accent-color);
+  padding: 12px 0;
+}
+
+#menu ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 20px;
+}
+
+#menu li {
+  display: inline-block;
+}
+
+#menu a {
+  color: var(--white);
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+#menu a:hover,
+#menu .current_page_item a {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== Page Content ===== */
+#page {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  margin: 30px auto;
+  padding: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* ===== Content Area ===== */
+#content {
+  width: 70%;
+  float: left;
+  padding-right: 30px;
+}
+
+.post {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.title {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.byline {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 28%;
+  float: right;
+  background: var(--white);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.sidebar h2 {
+  background: var(--accent-color);
+  color: var(--white);
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  font-size: 1.2rem;
+}
+
+/* ===== Search Form ===== */
+#searchform {
+  margin-bottom: 20px;
+}
+
+#s {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* ===== Footer ===== */
+#footer {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 30px;
+}
+
+#footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#footer a:hover {
+  color: var(--accent-color);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 992px) {
+  #content {
+    width: 100%;
+    float: none;
+    padding-right: 0;
+  }
+
+  .sidebar {
+    width: 100%;
+    float: none;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  #menu ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #menu a {
+    text-align: center;
+    display: block;
+  }
+
+  .post {
+    padding: 15px;
+  }
+}

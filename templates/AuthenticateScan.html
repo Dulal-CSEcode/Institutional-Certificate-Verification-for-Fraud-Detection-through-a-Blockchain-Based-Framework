@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Certificate Verification and Validation using Blockchain</title>
+    <meta name="keywords" content="Specific Template, HTML CSS, free website template" />
+    <meta name="description" content="Specific Template is a free website template provided by TemplateMo.com" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='templatemo_style.css') }}">
+
+    <style>
+        .table-wrapper {
+            max-width: 98%;
+            margin: auto;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #333;
+            text-align: left;
+            word-break: break-word;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+
+    <script LANGUAGE="Javascript">
+        function validate() {
+            var a4 = document.forms["f1"]["t1"].value;
+            if (a4 == null || a4 == "") {
+                alert("Please upload Barcode file");
+                document.f1.t6.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="templatemo_header_wrapper">
+        <div id="templatemo_header">
+            {% include 'header.html' %}
+        </div>
+    </div>
+
+    <div id="templatemo_menu_wrapper">
+        <div id="templatemo_menu">
+            <ul>
+                <li class="nlink"><a href="AuthenticateScan">Authenticate&nbsp;Certificate</a></li>
+                <li class="nlink"><a href="index">Logout</a></li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <br/><br/><br/>
+            <div class="msg">
+                <font size="3" color="red"><center>{{ msg | safe }}</center></font>
+            </div>
+
+            <center><h3>Authenticate Certificate Screen</h3></center>
+
+            <form name="f1" method="post" action="/AuthenticateScanAction" enctype="multipart/form-data" onsubmit="return validate(this);">
+                <table align="center" width="40%" class="notepad" style="border-collapse: collapse;">
+                    <tr>
+                        <th align="left"><font size="2" color="black">Upload Certificate</font></th>
+                        <td><input type="file" name="t1"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" value="Submit">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            {% if certificate_data %}
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Student Name</th>
+                            <th>Department Name</th>
+                            <th>Contact No</th>
+                            <th>Address Details</th>
+                            <th>Date & Time</th>
+                            <th>Certificate Signature</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ sid }}</td>
+                            <td>{{ sname }}</td>
+                            <td>{{ dept }}</td>
+                            <td>{{ contact }}</td>
+                            <td>{{ address }}</td>
+                            <td>{{ datetime }}</td>
+                            <td style="word-break: break-word;">{{ signature }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <footer style="background-color: #2c3e50; color: #ecf0f1; text-align: center; padding: 1rem 0; font-size: 0.9rem;">
+        &copy; Certificate Verification System. Developed with ❤️ using Blockchain.
+    </footer>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Certificate Verification and Validation using Blockchain</title>
+  <meta name="keywords" content="Blockchain, Certificate Verification, Validation" />
+  <meta name="description" content="Blockchain-based certificate verification system" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='templatemo_style.css') }}">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    #templatemo_header_wrapper {
+      background: linear-gradient(135deg, #2c3e50, #3498db);
+      padding: 20px 0;
+    }
+
+    #templatemo_header #title {
+      color: white;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    #templatemo_menu_wrapper {
+      background-color: #2c3e50;
+    }
+
+    #templatemo_menu ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    #templatemo_menu ul li a {
+      color: #ecf0f1;
+      text-decoration: none;
+      font-size: 15px;
+      padding: 15px;
+      display: block;
+    }
+
+    #templatemo_menu ul li a:hover {
+      background-color: #34495e;
+      border-radius: 5px;
+    }
+
+    .content {
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .msg-box {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      width: 95%;
+      max-width: 1100px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      overflow-x: auto;
+      border-radius: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      word-break: break-word;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: #f1f1f1;
+      color: #2c3e50;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
+
+    @media screen and (max-width: 768px) {
+      #templatemo_menu ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .msg-box {
+        padding: 15px;
+      }
+
+      table {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header Section -->
+  <div id="templatemo_header_wrapper">
+    <div id="templatemo_header">
+      {% include 'header.html' %}
+    </div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <div id="templatemo_menu_wrapper">
+    <div id="templatemo_menu">
+      <ul>
+        <li><a href="AuthenticateScan">Authenticate Certificate</a></li>
+        <li><a href="index">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="content">
+    <div class="msg-box">
+      {{ msg | safe }}
+    </div>
+  </div>
+
+ 
+
+</body>
+</html>

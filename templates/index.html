@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Certificate Verification and Validation using Blockchain</title>
+  <style>
+    :root {
+      --primary: #3498db;
+      --dark: #2c3e50;
+      --light: #ecf0f1;
+      --accent: #e74c3c;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, var(--light), #f9f9f9);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--dark), var(--primary));
+      color: var(--white);
+      padding: 1rem 0;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 60px;
+    }
+
+    .logo-container h1 {
+      animation: slideIn 1s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav {
+      background-color: var(--dark);
+      padding: 0.8rem 0;
+    }
+
+    .nav-list {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
+      background-color: transparent;
+      border: 1px solid var(--primary);
+      transition: 0.3s;
+    }
+
+    .nav-link:hover {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .hero-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      opacity: 0;
+      animation: fadeInImage 1.5s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes fadeInImage {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .section {
+      background-color: var(--white);
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-title {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-top: 1rem;
+      padding-left: 0;
+    }
+
+    .feature-item {
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 25px;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .feature-item:hover {
+      transform: translateX(5px);
+      color: var(--accent);
+    }
+
+    .feature-item::before {
+      content: "✔";
+      color: var(--primary);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .team-card {
+      background-color: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .team-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .team-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .team-info {
+      padding: 1.2rem;
+    }
+
+    .team-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .team-role {
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer {
+      background-color: var(--dark);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 2rem;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo-container">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Blockchain Certificate Logo" class="logo">
+      <h1>Certificate Verification and Validation using Blockchain</h1>
+    </div>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li><a href="index" class="nav-link">Home</a></li>
+        <li><a href="AdminLogin" class="nav-link">Educational Authority Login</a></li>
+        <li><a href="Login" class="nav-link">Company Login Here</a></li>
+        <li><a href="Signup" class="nav-link">New Company Signup Here</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <img src="{{ url_for('static', filename='images/tra.jpg') }}" alt="Blockchain Technology" class="hero-image">
+    
+    <section class="section">
+      <h2 class="section-title">About Our System</h2>
+      <p>Our Blockchain-based Certificate Verification System provides a Good solution for educational institutions and employers to validate academic credentials.</p>
+      <h3 style="margin: 1.5rem 0 1rem 0; color: var(--dark);">Key Features:</h3>
+      <ul class="feature-list">
+        <li class="feature-item">Immutable record of all certificates on the blockchain</li>
+        <li class="feature-item">Instant verification by employers and institutions</li>
+        <li class="feature-item">Reduction in fraudulent certificates</li>
+        <li class="feature-item">Decentralized storage for enhanced security</li>
+        <li class="feature-item">User-friendly interface for all stakeholders</li>
+      </ul>
+      <p>The system leverages Ethereum blockchain technology to ensure the highest level of security and transparency in certificate verification.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Our Development Team</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="{{ url_for('static', filename='images/mostak.jpg') }}" alt="Mostak Ahmmed" class="team-img">
+          <div class="team-info">
+            <h3 class="team-name">Mostak Ahmmed</h3>
+            <p class="team-role">Blockchain Developer</p>
+            <p>Specializes in smart contract development and Ethereum blockchain integration.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img src="{{ url_for('static', filename='images/rabby.jpg') }}" alt="Md Rabby Khan" class="team-img">
+          <div class="team-info">
+            <h3 class="team-name">Md Rabby Khan</h3>
+            <p class="team-role">System Architect</p>
+            <p>Expert in system architecture and database management for secure transactions.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img src="{{ url_for('static', filename='images/dulal.jpg') }}" alt="Md. Dulal Hossain" class="team-img">
+          <div class="team-info">
+            <h3 class="team-name">Md. Dulal Hossain</h3>
+            <p class="team-role">UI/UX Developer</p>
+            <p>Creates intuitive user interfaces and seamless verification workflows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  
+ <footer style="background-color: #2c3e50; color: #ecf0f1; text-align: center; padding: 1rem 0; font-size: 0.9rem;">
+    &copy; Certificate Verification System. Developed with ❤️ using Blockchain.
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

@@ -7,12 +7,6 @@ The Blockchain-Based Certificate Verification and Fraud Detection (BCVFD) framew
 Instead of storing complete certificates on-chain, BCVFD stores only the SHA-256 hash of each certificate, reducing storage overhead while preserving privacy and tamper resistance.
 
 ---
-
-
-
-
-
-
 ## Research Publication
 
 This repository accompanies the research work:
